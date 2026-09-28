@@ -1,17 +1,13 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
-from collections.abc import Callable
 from dataclasses import dataclass
-from math import log, sqrt, exp
 from typing import Literal
 
 import numpy as np
 import numpy.typing as npt
-from scipy.optimize import minimize
-from scipy.stats import norm
-
 Array = npt.NDArray[np.float64]
+
 @dataclass(frozen=True)
 class StochasticProcess(ABC):
     """Risk-neutral asset dynamics. Paths have shape (n_sim, n_steps + 1), column 0 = spot."""

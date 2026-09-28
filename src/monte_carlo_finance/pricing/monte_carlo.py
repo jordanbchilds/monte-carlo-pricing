@@ -12,9 +12,9 @@ from scipy.optimize import minimize
 from scipy.stats import norm
 
 Array = npt.NDArray[np.float64]
-from models.stochastic_processes import StochasticProcess
-from pricing.payoffs import Payoff, ExercisePayoff
-from pricing.analytic import ControlVariate
+from ..models.stochastic_processes import StochasticProcess
+from .payoffs import Payoff, ExercisePayoff
+from .analytic import ControlVariate
 
 @dataclass(frozen=True)
 class PriceEstimate:

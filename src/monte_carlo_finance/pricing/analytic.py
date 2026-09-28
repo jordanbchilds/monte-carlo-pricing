@@ -1,19 +1,15 @@
 from __future__ import annotations
 
-from abc import ABC, abstractmethod
-from collections.abc import Callable
 from dataclasses import dataclass
 from math import log, sqrt, exp
-from typing import Literal
-
 import numpy as np
 import numpy.typing as npt
-from scipy.optimize import minimize
 from scipy.stats import norm
 
+from ..models.stochastic_processes import GeometricBrownianMotion
+from .payoffs import Payoff
+
 Array = npt.NDArray[np.float64]
-from models.stochastic_processes import GeometricBrownianMotion
-from pricing.payoffs import Payoff
 
 def blackScholesPrice(process: GeometricBrownianMotion, strike: float,
                        isCall: bool = True) -> float:
