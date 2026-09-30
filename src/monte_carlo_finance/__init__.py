@@ -19,6 +19,8 @@ from .pricing import (
     PriceEstimate,
     Underlying,
     barrierContinuityCorrection,
+    BinomialPricer,
+    BinomialTree,
     blackScholesPrice,
     geometricAsianPrice,
 )
@@ -41,6 +43,8 @@ __all__ = [
     "ControlVariate",
     "PriceEstimate",
     "MonteCarloPricer",
+    "BinomialTree",
+    "BinomialPricer",
     "MarketQuote",
     "CalibrationResult",
     "Calibrator",

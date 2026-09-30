@@ -11,10 +11,12 @@ from .payoffs import (
 from .analytic import blackScholesPrice, geometricAsianPrice, ControlVariate
 from .monte_carlo import PriceEstimate, MonteCarloPricer
 from .calibration import MarketQuote, CalibrationResult, Calibrator
+from .binomial import BinomialTree, BinomialPricer
 
 __all__ = [
     "Payoff", "EuropeanOption", "Underlying", "AsianOption", "BarrierOption",
     "barrierContinuityCorrection", "ExercisePayoff", "AmericanOption",
     "blackScholesPrice", "geometricAsianPrice", "ControlVariate",
     "PriceEstimate", "MonteCarloPricer", "MarketQuote", "CalibrationResult", "Calibrator",
+    "BinomialTree", "BinomialPricer",
 ]

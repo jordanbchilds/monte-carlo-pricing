@@ -49,4 +49,34 @@ print(paths.shape)
 print(estimate.price, estimate.standardError)
 ```
 
+## Binomial pricing
+
+The same `GeometricBrownianMotion` process can be priced with a
+Cox-Ross-Rubinstein binomial tree. European options use `price`, while
+American vanilla options use `priceAmerican`.
+
+```python
+from monte_carlo_finance import (
+    AmericanOption,
+    BinomialPricer,
+    EuropeanOption,
+    GeometricBrownianMotion,
+)
+
+process = GeometricBrownianMotion(
+    spotPrice=100.0,
+    riskFreeRate=0.05,
+    dividendRate=0.0,
+    maxTime=1.0,
+    volatility=0.20,
+)
+pricer = BinomialPricer(process)
+
+european_price = pricer.price(EuropeanOption(100.0), n_steps=100)
+american_price = pricer.priceAmerican(AmericanOption(100.0), n_steps=100)
+```
+
+The underlying tree is available for inspection with
+`BinomialTree(process, n_steps=100).stock_prices`.
+
 The full API is also available from `monte_carlo_finance.models` and `monte_carlo_finance.pricing`.
